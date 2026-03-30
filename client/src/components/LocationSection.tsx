@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { MapPin, Clock, Phone, Navigation } from "lucide-react";
-import { MapView } from "@/components/Map";
+
 
 const WHATSAPP_NUMBER = "5581996380257";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido.`;
@@ -147,17 +147,15 @@ export default function LocationSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 h-[500px]"
           >
-            <MapView
-              onMapReady={(map) => {
-                const position = { lat: -8.0476, lng: -34.9286 };
-                map.setCenter(position);
-                map.setZoom(16);
-                new google.maps.marker.AdvancedMarkerElement({
-                  position,
-                  map,
-                  title: "Peixaria Central do Camarão",
-                });
-              }}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.692685681607!2d-34.94728618907677!3d-8.030587380141947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab192690c54009%3A0x3f170125caf69f00!2sPeixaria%20Central%20do%20Camar%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1774905576600!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
             />
           </motion.div>
         </div>
